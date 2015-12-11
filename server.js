@@ -110,7 +110,14 @@ function parserproxy (options){
               }
               res.end();
             } else {
-              res.writeHead(200, {'Content-Type': 'application/json'});
+              var responseHeaders = {  
+                  "Access-control-Allow-Origin": "*",
+                  "Access-Control-Allow-Credentials" : true,
+                  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+                  "Access-Control-Allow-Headers": "content-type, accept",
+                  "Content-Type": "application/json"
+              };
+              res.writeHead(200, responseHeaders);
               res.end(JSON.stringify({ meta: meta, articles: articles }));
             }
           };

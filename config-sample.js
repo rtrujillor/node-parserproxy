@@ -12,4 +12,7 @@ exports = module.exports = {
   port : 3030
 , timeout : null // Takes a Number
 , url: null
+, headers : {
+	'Access-Control-Allow-Origin': '*'
+}
 }
